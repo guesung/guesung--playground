@@ -1,6 +1,10 @@
 {
   "plugins": ["prettier"],
-  "estends": ["eslint:recommended", "plugin:prettier/recommended"],
-
+  "estends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "airbnb",
+    "prettier"
+  ],
   "rules": { "prettier/prettier": "error" }
 }
