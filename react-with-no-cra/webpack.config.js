@@ -24,4 +24,13 @@ module.exports = {
     // resolve: import를 할 때 확장자를 생략할 수 있습니다.
     extensions: [".jsx", ".js"],
   },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|ts|tsx)$/, // 해당 파일명으로 끝나면 babel-loader가 처리
+        exclude: /node_modules/, // node_modules는 대상에서 제외
+        loader: "babel-loader", // 바벨 로더 추가
+      },
+    ],
+  },
 };
