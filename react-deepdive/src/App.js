@@ -1,23 +1,33 @@
 import logo from './logo.svg';
-import './App.css';
+
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [number, setNumber] = useState(1);
+  const [object, setObject] = useState({ name: "John" });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>{number}</div>
+      <button onClick={() => setNumber(number + 1)}>증가</button>
+      <div>{object.name}</div>
+      <button
+        onClick={() => {
+          object.name = "Doe";
+          setObject(object);
+        }}
+      >
+        객체의 속성 바꾸기
+      </button>
+      <button
+        onClick={() => {
+          object.name = "Doe";
+          setObject({ ...object });
+        }}
+      >
+        객체의 참조값 바꾸기
+      </button>
     </div>
   );
 }
