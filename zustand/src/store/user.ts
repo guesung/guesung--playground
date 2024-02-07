@@ -7,20 +7,18 @@ interface User {
 }
 
 type UserStoreType = {
+  user: User;
   setUserAgePlus: () => void;
-} & User;
+}; 
 
 const useUserStore = create<UserStoreType>((set) => ({
-  userId: 0,
-  age: 0,
-  name: "",
+  user: {
+    userId: 0,
+    age: 0,
+    name: "",
+  },
   setUserAgePlus: () => {
-    set((state) => {
-      return {
-        ...state,
-        age: state.age + 1,
-      };
-    });
+    set((state) => ({ user: { ...state.user, age: state.user.age + 1 } }));
   },
 }));
 

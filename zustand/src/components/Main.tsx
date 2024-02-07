@@ -2,7 +2,9 @@ import { useUserStore } from "../store/user";
 import Sub from "./Sub";
 
 export default function Main() {
-  const { age, setUserAgePlus } = useUserStore();
+  console.log("Main");
+  const age = useUserStore((state) => state.user.age);
+  const setUserAgePlus = useUserStore((state) => state.setUserAgePlus);
   return (
     <div>
       <h1>Main</h1>
