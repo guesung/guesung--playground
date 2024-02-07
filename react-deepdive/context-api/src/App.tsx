@@ -8,10 +8,7 @@ export default function App() {
     <div className="App">
       <ThemeProvider>
         <Main />
-        <Sub />
-        <Sub />
-        <Sub />
-        <Sub />
+        <Sub value="in ThemeProvider" />
       </ThemeProvider>
     </div>
   );
