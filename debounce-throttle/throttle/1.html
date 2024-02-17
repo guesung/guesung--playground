@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  html {
+    height: 1000vh
+  }
+</style>
+
+<body>
+  <input type="text" id="input">
+  <script>
+      const inputEL = document.getElementById("input")
+
+      const throttleHandler = () => {
+        let timer;
+        let isWaiting = false;
+
+        return (callback, delay) => {
+          if (isWaiting) return;
+          isWaiting = true;
+          timer = setTimeout(() => {
+            isWaiting = false;
+            callback()
+          }, delay)
+      }
+    }
+
+  const throttle = throttleHandler();
+
+      const scrollHandler = (e) => console.log('scroll')
+
+      window.addEventListener('scroll', () => {
+        throttle(scrollHandler, 500)
+      })
+    </script>
+</body>
+
+</html>
