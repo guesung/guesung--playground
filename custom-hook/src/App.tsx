@@ -10,6 +10,7 @@ function App() {
     setState(e.target.value);
   };
 
+
   return (
     <div className="App">
       <input onChange={handleDebounceInputChange} />
