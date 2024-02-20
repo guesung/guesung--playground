@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <table>
+      <tr>
+        <th colspan="3"><em>제목</em></th>
+      </tr>
+      <tr>
+        <td>hello1</td>
+        <td>hello2</td>
+        <td>hello3</td>
+      </tr>
+      <tr>
+        <td>hello4</td>
+        <td>hello5</td>
+        <td>hello6</td>
+      </tr>
+    </table>
+  </div>
+</body>
+<script>
+  const tableEl = document.querySelector('table');
+  tableEl.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.tagName === 'TD') {
+      console.log(target.textContent);
+    }
+  });
+</script>
+</html>
