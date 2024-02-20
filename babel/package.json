@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel src -d dist --plugins=@babel/plugin-transform-arrow-functions"
+    "compile": "babel src -d dist --presets=@babel/env"
   },
   "keywords": [],
   "author": "",
