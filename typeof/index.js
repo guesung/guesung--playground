@@ -13,3 +13,5 @@ console.log(typeof new String(1));
 
 console.log(typeof function () {});
 console.log(typeof (() => {}));
+
+console.log(typeof new (class A {})());
