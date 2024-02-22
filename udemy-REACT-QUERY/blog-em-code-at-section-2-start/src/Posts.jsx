@@ -14,6 +14,7 @@ export function Posts() {
     queryFn: fetchPosts,
     staleTime: 2000, // 2 seconds
   });
+
   if (isLoading) {
     return <h3>Loading...</h3>;
   }
