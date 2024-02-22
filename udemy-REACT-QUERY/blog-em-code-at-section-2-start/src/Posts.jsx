@@ -10,10 +10,19 @@ export function Posts() {
   const [selectedPost, setSelectedPost] = useState(null);
 
   const { data, isError, error, isLoading } = useQuery({
-    queryKey: ["posts"],
-    queryFn: fetchPosts,
+    queryKey: ["posts", currentPage],
+    queryFn: () => fetchPosts(currentPage),
     staleTime: 2000, // 2 seconds
   });
+
+  const handlePrevButton = () => {
+    if (currentPage <= 0) return;
+    setCurrentPage((page) => page - 1);
+  };
+  const handleNextButton = () => {
+    if (currentPage >= maxPostPage - 1) return;
+    setCurrentPage((page) => page + 1);
+  };
 
   if (isLoading) {
     return <h3>Loading...</h3>;
@@ -26,7 +35,6 @@ export function Posts() {
       </>
     );
   }
-
   return (
     <>
       <ul>
@@ -41,11 +49,14 @@ export function Posts() {
         ))}
       </ul>
       <div className="pages">
-        <button disabled onClick={() => {}}>
+        <button disabled={currentPage === 0} onClick={handlePrevButton}>
           Previous page
         </button>
         <span>Page {currentPage + 1}</span>
-        <button disabled onClick={() => {}}>
+        <button
+          disabled={currentPage === maxPostPage - 1}
+          onClick={handleNextButton}
+        >
           Next page
         </button>
       </div>
