@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef, useState } from "react";
 
 function App() {
+  const ref = useRef(1);
+  const [count, setCount] = useState(0);
+
+  console.log(ref);
+  ref.current++;
+  console.log(ref);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {ref.current}
+      <button
+        onClick={() => {
+          ref.current++;
+          setCount(count + 1);
+          console.log(ref.current);
+        }}
+      >
+        Click
+      </button>
     </div>
   );
 }
